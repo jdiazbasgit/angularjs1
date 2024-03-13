@@ -11,6 +11,7 @@ app.controller('View3Ctrl', function ($scope, $http) {
 
 
     $scope.paises = []
+    //$scope.paisSeleccionado="0"
 
 
     $scope.cargarPaises = url => {
