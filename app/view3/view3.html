@@ -1,0 +1,13 @@
+<div ng-controller="View3Ctrl">
+<h1>view3</h1>
+     <input type="tex"t" ng-model="valor"><br>
+     <h1>{{valor}}</h1>
+
+     <button ng-click="cambiar('texto cambiado sdfsdgfdsgdfgs')">cambiar</button>
+    <button ng-click="cargarPaises('https://restcountries.com/v3.1/region/europe')">cargar paises</button>
+
+
+    <ul>
+        <li ng-repeat="pais in paises">{{pais.name.official}}+"-"+ ,{{pais.capital[0]}}+"-"+{{pais.population}}</li>
+    </ul>
+</div>
