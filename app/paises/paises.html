@@ -1,0 +1,36 @@
+<div ng-controller="paisesCtrl" ng-init="cargarPaises('https://restcountries.com/v3.1/region/europe')">
+    <h1>paises</h1>
+    <br>
+    <label for="select-paises">Seleccione un pais:</label>
+    <select name="paises" id="select-paises" ng-model="pais" ng-change="cargarPais()">
+        <option value="0">Seleccione pais</option>
+        <option ng-repeat="pais in paises" value="{{pais.name.common}}">{{pais.name.common}}</option>
+    </select>
+    <br><br>
+    <table class="table-bordered">
+        <tr>
+            <td>Nombre</td>
+            <td>{{nombre}}</td>
+        </tr>
+        <tr>
+            <td>Nombre oficial</td>
+            <td>{{nombreOficial}}</td>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>{{capital[0]}}</td>
+        </tr>
+        <tr>
+            <td>Poblacion</td>
+            <td>{{poblacion}}</td>
+        </tr>
+        <tr>
+            <td>Bandera</td>
+            <td><img src="{{bandera}}"></td>
+        </tr>
+        <tr>
+            <td>Escudo</td>
+            <td><img src="{{escudo}}"></td>
+        </tr>
+    </table>
+    </div>
