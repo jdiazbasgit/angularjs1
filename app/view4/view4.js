@@ -5,6 +5,9 @@ var app = angular.module('myApp.view4', ['ngRoute'])
 
 app.controller('View4Ctrl', function ($scope, $http) {
 
+    $scope.paises = []
+    $scope.datosDelPais = null;
+
     $scope.cargarPaises = url => {
 
         var config = {
@@ -26,4 +29,5 @@ app.controller('View4Ctrl', function ($scope, $http) {
             $scope.datosDelPais = null;
         }
     });
+
 })

@@ -3,9 +3,9 @@
     
         <button class="btn btn-secondary btn-sm" ng-click="cargarPaises('https://restcountries.com/v3.1/region/europe')">cargar paises</button>
         
-        <select ng-model="paisSeleccionado" ng-change="cargaPais()">
+        <select ng-model="paisSeleccionado">
             <option value="0">Selecciona pais...</option>
-            <option ng-repeat="pais in paises" value="{{pais.name.common}}">{{pais.name.common}}</option>
+            <option ng-repeat="pais in paises | orderBy: 'name.common'" value="{{pais.name.common}}">{{pais.name.common}}</option>
         </select>
     
         
