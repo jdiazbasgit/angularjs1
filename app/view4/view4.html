@@ -1,0 +1,17 @@
+<div ng-controller="View4Ctrl">
+    <h1>View4</h1>
+    
+        <button class="btn btn-secondary btn-sm" ng-click="cargarPaises('https://restcountries.com/v3.1/region/europe')">cargar paises</button>
+        
+        <select ng-model="paisSeleccionado" ng-change="cargaPais()">
+            <option value="0">Selecciona pais...</option>
+            <option ng-repeat="pais in paises" value="{{pais.name.common}}">{{pais.name.common}}</option>
+        </select>
+    
+        
+        <h1>{{paisSeleccionado}}</h1>
+        <img ng-src="{{datosDelPais.flags.png}}" alt="{{datosDelPais.name.common}}" style="width: 100px; height: auto;" />
+        <h2>Capital: {{datosDelPais.capital[0]}}</h2>
+
+
+    </div>

@@ -6,14 +6,19 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.view3',
+  'myApp.view4',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider,$scope) {
   $locationProvider.hashPrefix('!!!');
   $routeProvider.when('/view3', {
     templateUrl: 'view3/view3.html',
-    controller: 'View3Ctrl'
-})
+    controller: 'View3Ctrl',
+}).when('/view4', {
+  templateUrl: 'view4/view4.html',
+  controller: 'View4Ctrl',
+}),
+
   $routeProvider.otherwise({redirectTo: '/view1'});
   
 }]);
