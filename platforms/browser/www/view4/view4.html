@@ -1,11 +1,11 @@
-<div ng-controller="View4Ctrl1">
+<div ng-app="myApp.view4" ng-controller="View4Ctrl1">
     <select ng-model="paisSeleccionado" ng-change="cargaPais()">
         <option value="0">Selecciona pais...</option>
         <option ng-repeat="pais in paises" value="{{pais.name.common}}">{{pais.name.common}}</option>
     </select>
     <h1>{{paisSeleccionado}}</h1>
 
-    <div ng-controller="View4Ctrl2">
+    <div ng-app="myApp.view5" ng-controller="View5Ctrl">
         <button ng-click="cargaPais(paisSeleccionado)">cargar</button>
         <!--<h1>{{moneda}}</h1>
         <h1>{{nombreMoneda}}</h1>
