@@ -1,4 +1,5 @@
-<div ng-controller="View4Ctrl1">
+
+
     <select ng-model="paisSeleccionado" ng-change="cargaPais()">
         <option value="0" >Selecciona pais...</option>
         <option ng-repeat="pais in paises" value="{{pais.name.common}}">{{pais.name.common}}</option>
