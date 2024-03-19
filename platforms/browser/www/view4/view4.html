@@ -1,13 +1,31 @@
-
-
+<div ng-controller="View4Ctrl1">
     <select ng-model="paisSeleccionado" ng-change="cargaPais()">
-        <option value="0" >Selecciona pais...</option>
+        <option value="0">Selecciona pais...</option>
         <option ng-repeat="pais in paises" value="{{pais.name.common}}">{{pais.name.common}}</option>
     </select>
     <h1>{{paisSeleccionado}}</h1>
+
     <div ng-controller="View4Ctrl2">
         <button ng-click="cargaPais(paisSeleccionado)">cargar</button>
-        <h1>{{nombreComun}}</h1>
-        <h1>{{nombreOficial}}</h1>
-        <h1>{{capital}}</h1>
-</div>  
+        <!--<h1>{{moneda}}</h1>
+        <h1>{{nombreMoneda}}</h1>
+        <h1>{{simboloMoneda}}</h1>-->
+      
+        <div ng-repeat="objeto in objetos">
+       
+            <button data-bs-toggle="collapse" data-bs-target="#demo{{objeto[0]}}">{{objeto[1].common}}</button>
+
+            <div id="demo{{objeto[0]}}" class="collapse">
+                <ul>
+                    <li ng-repeat="nombre in paisesIdioma[$index]">{{nombre}}</li>
+                </ul>
+
+             
+               
+            </div>
+            
+
+        </div>
+        <h1></h1>
+    </div>
+</div>

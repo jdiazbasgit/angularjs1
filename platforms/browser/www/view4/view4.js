@@ -5,10 +5,10 @@ app.config(['$routeProvider', function ($routeProvider) {
     controller: 'View4Ctrl1'
   });
 }])
-app.controller("View4Ctrl1", function ($rootScope, $http, $scope) {
-
+app.controller("View4Ctrl1", function ($http, $scope) {
+  $scope.paisSeleccionado = "0"
   $scope.cargarPaises = url => {
-    $rootScope.paisSeleccionado = "0"
+
     var config = {
       url: url
     }
@@ -24,9 +24,9 @@ app.controller("View4Ctrl1", function ($rootScope, $http, $scope) {
   $scope.cargarPaises("https://restcountries.com/v3.1/region/europe")
 })
 
-app.controller("View4Ctrl2", function ($rootScope, $scope, $http) {
+app.controller("View4Ctrl2", function ($scope, $http) {
 
-  $scope.cargaPais=(pais)=>{
+  $scope.cargaPais = (pais) => {
     var config = {
       url: "https://restcountries.com/v3.1/name/" + pais
     }
@@ -35,7 +35,29 @@ app.controller("View4Ctrl2", function ($rootScope, $scope, $http) {
 
       $scope.nombreComun = datos.data[0].name.common
       $scope.nombreOficial = datos.data[0].name.official
-      $scope.capital = datos.data[0].capital
+      $scope.capital = datos.data[0].capital[0]
+      $scope.objetos = []
+      Object.entries(datos.data[0].translations).forEach(function (traduccion) {
+        var config1 = {
+          url: "https://restcountries.com/v3.1/lang/" + traduccion[0]
+        }
+
+        $scope.paisesIdioma = []
+        $http(config1).then(function (datos) {
+          if (datos.status!==404) {
+            paises = []
+            datos.data.forEach(function (pais) {
+              paises.push(pais.name.common)
+            })
+            $scope.paisesIdioma.push(paises)
+          }
+        })
+
+        /*$scope.moneda=traduccion[0]
+        $scope.nombreMoneda=traduccion[1].official
+        $scope.simboloMoneda=traduccion[1].common*/
+        $scope.objetos.push(traduccion)
+      })
 
     })
   }
