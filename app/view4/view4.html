@@ -3,15 +3,35 @@
     
         <button class="btn btn-secondary btn-sm" ng-click="cargarPaises('https://restcountries.com/v3.1/region/europe')">cargar paises</button>
         
-        <select ng-model="paisSeleccionado">
+        <select ng-model="paisSeleccionado" ng-change="cargaPais()">
             <option value="0">Selecciona pais...</option>
             <option ng-repeat="pais in paises | orderBy: 'name.common'" value="{{pais.name.common}}">{{pais.name.common}}</option>
         </select>
-    
         
-        <h1>{{paisSeleccionado}}</h1>
+        <table class="table table-bordered">
+            <tr>
+                <td>nombre comun</td>
+                <td>{{nombreComun}}<td>
+            </tr><tr>
+                <td>nombre oficial</td>
+                <td>{{nombreOficial}}</td>
+            </tr><tr>
+                <td>capital</td>
+                <td>{{capital[0]}}</td>
+            </tr><tr>
+                <td>poblacion</td>
+                <td>{{poblacion}}</td>
+            </tr><tr>
+                <td>bandera</td>
+                <td><img src="{{bandera}}" style="width: 200px; height: auto;"></td>
+            </tr><tr>
+                <td>escudo</td>
+                <td><img src="{{escudo}}" style="width: 100px; height: auto;"></td>
+            </tr>
+        </table>
+        
+        <!--<h1>{{paisSeleccionado}}</h1>
         <img ng-src="{{datosDelPais.flags.png}}" alt="{{datosDelPais.name.common}}" style="width: 100px; height: auto;" />
-        <h2>Capital: {{datosDelPais.capital[0]}}</h2>
-
+        <h2>Capital: {{datosDelPais.capital[0]}}</h2>-->
 
     </div>
