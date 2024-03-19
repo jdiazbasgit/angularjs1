@@ -22,26 +22,13 @@ app.controller('View3Ctrl', function ($scope, $http,$location) {
 
     
 
-    $scope.cargarPaises = url => {
-
-        var config = {
-            url: url
-        }
-
-        $http(config).then(function (datos) {
-
-            console.log(datos.data)
-            $scope.paises=datos.data
-        })
-        
-
-    }
+   
     $scope.cargaPais=function(){
 
         //$location.url="/generales/"+$scope.paisSeleccionado
         $location.url("/generales/"+$scope.paisSeleccionado)
 
-        
+
        /* var configPais = {
             url:`https://restcountries.com/v3.1/name/${$scope.paisSeleccionado}`
         }

@@ -1,7 +1,12 @@
-
-    <div ng-controller="View4Ctrl">
-
-        <h1>{{texto}}</h1>
-       
-    </div> <button ng-click="irA2()"">ir a 2</button>
-    
+<div ng-controller="View4Ctrl1">
+    <select ng-model="paisSeleccionado" ng-change="cargaPais()">
+        <option value="0" >Selecciona pais...</option>
+        <option ng-repeat="pais in paises" value="{{pais.name.common}}">{{pais.name.common}}</option>
+    </select>
+    <h1>{{paisSeleccionado}}</h1>
+    <div ng-controller="View4Ctrl2">
+        <button ng-click="cargaPais(paisSeleccionado)">cargar</button>
+        <h1>{{nombreComun}}</h1>
+        <h1>{{nombreOficial}}</h1>
+        <h1>{{capital}}</h1>
+</div>  
