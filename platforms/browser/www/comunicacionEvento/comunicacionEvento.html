@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-controller="ControladorPadre">
+        <button data-bs-toggle="collapse" data-bs-target="#demoGenerales">Datos Geograficos</button>
+        <div id="demoGenerales" class="collapse">
+            
+            <h1>{{area}}</h1> 
+            <h1 ng-repeat="frontera in fronteras">{{frontera}}</h1>
+        </div>
+
+        <button data-bs-toggle="collapse" data-bs-target="#demoGeograficos">Datos Generales</button>
+        <div id="demoGeograficos" class="collapse">
+            <h1>{{nombreComun}}</h1> 
+            <h1>{{nombreOficial}}</h1> 
+            <h1>{{capital}}</h1> 
+            <h1>{{poblacion}}</h1> 
+            <h1 ng-repeat="moneda in monedas">{{moneda[1].name}} - {{moneda[1].symbol}}</h1>
+        </div>
+
+        <div ng-controller="ControladorHijo">
+
+            <select ng-model="paisSeleccionado" ng-change="cambiarPais()">
+                <option value="0">Selecciona pais...</option>
+                <option ng-repeat="pais in paises" value="{{pais.name.common}}">{{pais.name.common}}</option>
+            </select>
+        </div>
+
+    </div>
+    
+</body>
+</html>
