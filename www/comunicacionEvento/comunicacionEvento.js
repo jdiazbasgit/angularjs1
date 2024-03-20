@@ -6,13 +6,11 @@ app.config(['$routeProvider', function ($routeProvider) {
     });
 }])
 
-app.directive("generales", [() => {
-    return
-    {
+app.directive('generales', [() => {
+    return{
         restrict: 'E',
-        template:
-
-    }
+        template:'<h1>{{nombreComun}}</h1><h1>{{nombreOficial}}</h1><h1>{{capital}}</h1> <h1>{{poblacion}}</h1><h1 ng-repeat="moneda in monedas">{{moneda[1].name}} - {{moneda[1].symbol}}</h1>'
+    };
 }])
 
 app.controller("ControladorPadre", function ($http, $scope) {

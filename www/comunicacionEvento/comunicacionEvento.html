@@ -16,11 +16,7 @@
 
         <button data-bs-toggle="collapse" data-bs-target="#demoGeograficos">Datos Generales</button>
         <div id="demoGeograficos" class="collapse">
-            <h1>{{nombreComun}}</h1> 
-            <h1>{{nombreOficial}}</h1> 
-            <h1>{{capital}}</h1> 
-            <h1>{{poblacion}}</h1> 
-            <h1 ng-repeat="moneda in monedas">{{moneda[1].name}} - {{moneda[1].symbol}}</h1>
+            <generales></generales>
         </div>
 
         <div ng-controller="ControladorHijo">

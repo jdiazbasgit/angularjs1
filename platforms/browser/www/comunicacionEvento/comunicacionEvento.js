@@ -6,6 +6,13 @@ app.config(['$routeProvider', function ($routeProvider) {
     });
 }])
 
+app.directive('generales', [() => {
+    return{
+        restrict: 'E',
+        template:'<h1>{{nombreComun}}</h1><h1>{{nombreOficial}}</h1><h1>{{capital}}</h1> <h1>{{poblacion}}</h1><h1 ng-repeat="moneda in monedas">{{moneda[1].name}} - {{moneda[1].symbol}}</h1>'
+    };
+}])
+
 app.controller("ControladorPadre", function ($http, $scope) {
 
     $scope.nombreComun = ""
@@ -45,7 +52,7 @@ app.controller("ControladorPadre", function ($http, $scope) {
                 }
                 $http(config).then(datos => {
                     $scope.fronteras.push(datos.data[0].name.common)
-               })
+                })
             })
             $scope.bandera = datos.data[0].flags.svg
             $scope.escudo = datos.data[0].coatOfArms.svg
@@ -54,7 +61,7 @@ app.controller("ControladorPadre", function ($http, $scope) {
 })
 app.controller("ControladorHijo", ($scope, $http) => {
     $scope.paisSeleccionado = "0"
-    $scope.paises=[]
+    $scope.paises = []
     $scope.cambiarPais = () => {
         $scope.cargarPais($scope.paisSeleccionado)
 
@@ -63,8 +70,8 @@ app.controller("ControladorHijo", ($scope, $http) => {
         url: "https://restcountries.com/v3.1/region/europe"
     }
 
-    $http(config).then(datos=>{
-        datos.data.forEach(pais=>{
+    $http(config).then(datos => {
+        datos.data.forEach(pais => {
             $scope.paises.push(pais)
         })
 
